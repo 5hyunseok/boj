@@ -12,7 +12,6 @@ public class Main {
     InputStream in = System.in;
     InputStreamReader reader = new InputStreamReader(in);
     BufferedReader br = new BufferedReader(reader);
-
 //    BufferedReader br = new BufferedReader(new FileReader("src/sample.txt"));
 
     int n = Integer.parseInt(br.readLine());

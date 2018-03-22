@@ -8,7 +8,6 @@ public class Main {
         InputStream in = System.in;
         InputStreamReader reader = new InputStreamReader(in);
         BufferedReader br = new BufferedReader(reader);
-
 //        BufferedReader br = new BufferedReader(new FileReader("src/sample.txt"));
 
         String[] arg = br.readLine().split(" ");
@@ -30,6 +29,5 @@ public class Main {
             if(remainder == 0) break;
         }
         System.out.println(count);
-
     }
 }
