@@ -1,4 +1,4 @@
-package boj1003;
+package boj1002;
 
 import java.io.*;
 
