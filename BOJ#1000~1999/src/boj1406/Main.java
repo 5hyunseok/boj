@@ -1,37 +1,37 @@
 package boj1406;
 
 import java.io.*;
+import java.util.Stack;
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        InputStream in = System.in;
-        InputStreamReader reader = new InputStreamReader(in);
-        BufferedReader br = new BufferedReader(reader);
-//        BufferedReader br = new BufferedReader(new FileReader("src/sample.txt"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String s = br.readLine();
-
         int n = Integer.valueOf(br.readLine());
-        int cursor = s.length();
-        StringBuilder sb = new StringBuilder();
-        sb.append(s);
+
+        Stack<Character> leftStack = new Stack<>();
+        Stack<Character> rightStack = new Stack<>();
+
+        for(int i=0; i<s.length(); i++) leftStack.push(s.charAt(i));
+
         for(int i=0; i<n; i++) {
-            String[] input = br.readLine().split(" ");
-            if(input[0].equals("L")) {
-                if(cursor > 0) cursor--;
-            }else if(input[0].equals("D")) {
-                if(cursor < (sb.length())) cursor++;
-            }else if(input[0].equals("B")) {
-                if(cursor > 0) {
-                    sb.delete(cursor-1, cursor);
-                    cursor--;
-                }
-            }else if(input[0].equals("P")) {
-                if(cursor < (sb.length())) sb.insert(cursor, input[1]);
-                else sb.append(input[1]);
-                cursor++;
+            String input = br.readLine();
+            if(input.equals("L")) {
+                if(leftStack.size() > 0) rightStack.push(leftStack.pop());
+            }else if(input.equals("D")) {
+                if(rightStack.size() > 0) leftStack.push(rightStack.pop());
+            }else if(input.equals("B")) {
+                if(leftStack.size() > 0) leftStack.pop();
+            }else {
+                leftStack.push(input.split(" ")[1].charAt(0));
             }
         }
-        System.out.println(sb.toString());
+
+        while(leftStack.size() > 0) rightStack.push(leftStack.pop());
+        StringBuilder stringBuilder = new StringBuilder();
+        while(rightStack.size() > 0) stringBuilder.append(rightStack.pop());
+
+        System.out.print(stringBuilder.toString());
     }
 }
