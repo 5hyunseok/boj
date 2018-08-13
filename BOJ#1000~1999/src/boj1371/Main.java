@@ -18,18 +18,15 @@ public class Main {
         }
       }
     }
-
-    int maxIdx = -1;
     int max = -1;
     for (int i = 25; i >= 0; i--) {
       if (count[i] >= max) {
         max = count[i];
-        maxIdx = i;
       }
     }
-    for(int i=0; i<26; i++) {
-      if(count[i] == max) {
-        System.out.print((char)(i+97));
+    for (int i = 0; i < 26; i++) {
+      if (count[i] == max) {
+        System.out.print((char) (i + 97));
       }
     }
   }
