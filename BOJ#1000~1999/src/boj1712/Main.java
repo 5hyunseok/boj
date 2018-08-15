@@ -15,7 +15,7 @@ public class Main {
     if (b >= c) {
       System.out.println(-1);
     } else {
-      System.out.println(a/(c-b) + 1);
+      System.out.println(a / (c - b) + 1);
     }
   }
 }
