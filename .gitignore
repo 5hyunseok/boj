@@ -5,4 +5,4 @@ src/sample.txt
 sample.txt
 cpp/cmake-build-debug/*
 cpp/CMakeLists.txt
-
+*.out
